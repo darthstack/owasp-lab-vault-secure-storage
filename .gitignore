@@ -1,0 +1,3 @@
+*.pem
+/secure-app/node_modules
+/vulnerable-app/node_modules

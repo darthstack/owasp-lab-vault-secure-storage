@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aplicación Segura</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'self' http://localhost:8200;">
+</head>
+<body>
+    <h1>Aplicación Segura - Demostración OWASP</h1>
+    
+    <div id="login">
+        <h2>Login</h2>
+        <button id="loginButton">Login</button>
+    </div>
+
+    <div id="userData">
+        <h2>Datos del Usuario</h2>
+        <button id="getDataButton">Obtener Datos</button>
+        <button id="logoutButton">Cerrar Sesión</button>
+        <div id="data"></div>
+    </div>
+
+    <script src="secure.js"></script>
+</body>
+</html> 

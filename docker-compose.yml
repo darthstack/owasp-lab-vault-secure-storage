@@ -1,0 +1,41 @@
+version: "3.8"
+services:
+  vulnerable-app:
+    image: node:18-alpine
+    working_dir: /app
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=development
+      - JWT_SECRET=hardcoded_secret_key
+    volumes:
+      - ./vulnerable-app:/app
+    command: sh -c "npm install && npm start"
+
+  secure-app:
+    image: node:18-alpine
+    working_dir: /app
+    ports:
+      - "3002:3000"
+      - "3003:3001"
+    environment:
+      - NODE_ENV=production
+      - VAULT_ADDR=http://vault:8200
+    depends_on:
+      - vault
+    volumes:
+      - ./secure-app:/app
+      - ./secure-app/key.pem:/app/key.pem
+      - ./secure-app/cert.pem:/app/cert.pem
+    command: sh -c "npm install && npm start"
+
+  vault:
+    image: hashicorp/vault:1.15.2
+    ports:
+      - "8201:8200"
+    environment:
+      - VAULT_DEV_ROOT_TOKEN_ID=myroot
+      - VAULT_ADDR=http://0.0.0.0:8200
+    cap_add:
+      - IPC_LOCK
+    command: server -dev
