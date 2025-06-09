@@ -39,7 +39,7 @@ En este laboratorio, la `secure-app` utiliza Vault para obtener su secreto JWT e
 
 ```bash
 git clone https://github.com/darthstack/owasp-lab-vault-secure-storage.git
-cd owasp-lab
+cd owasp-lab-vault-secure-storage
 ```
 
 2. Generar Certificados SSL (desde la raíz del proyecto):
