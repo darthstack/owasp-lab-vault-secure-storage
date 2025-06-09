@@ -38,7 +38,7 @@ En este laboratorio, la `secure-app` utiliza Vault para obtener su secreto JWT e
 1. Clonar el repositorio:
 
 ```bash
-git clone <url-del-repositorio>
+git clone https://github.com/darthstack/owasp-lab-vault-secure-storage.git
 cd owasp-lab
 ```
 
